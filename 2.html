@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <title>누리원</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@700&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;700&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;700&family=Song+Myung&display=swap');
+
+        * {margin: 0; padding: 0;}
+        #wrap {width: 100%;}
+        header {width:100%; height: 150px; position:relative; z-index:10;}
+        #title {height: 30px; position: absolute;
+             transform: translate(-50%, -50%);
+           top: 20px; left: 50%;}
+        .header-list {width:1200px; margin:0 auto;font-size:0;padding:15px 0;}
+        .header-list > li {font-size:12px;display:inline-block;vertical-align:middle;}
+        .header-list > li:nth-child(1) {font-size:20px;width:200px;}
+        .header-list > li:nth-child(2) {width:calc(100% - 250px);}
+        .header-list > li:nth-child(3) {width:50px;}
+        .header-list > li > div {width:auto;}
+
+        .menu-ul {font-size:0;}
+        .menu-ul > li {font-size:12px;display:inline-block;vertical-align:middle;}
+        .menu-ul > li > a {display:block;width:auto;padding:15px;}
+
+        input[id="menuicon"] {display:none;}
+        input[id="menuicon"] + label {display:block;position:relative;width:100%;height:40px;cursor:pointer;}
+        input[id="menuicon"] + label span {display:block;position:absolute;width:100%;height:3px;border-radius:30px;background:#666;transition:all .35s;}
+        input[id="menuicon"] + label span:nth-child(1) {top:10%;}
+        input[id="menuicon"] + label span:nth-child(2) {top:50%;transform:translateY(-50%);} /* �����ϰ� ������ �� �ִ� style top:calc(50% - 2.5px); margin-top:-2.5px;*/
+        input[id="menuicon"] + label span:nth-child(3) {bottom:10%;}
+        input[id="menuicon"]:checked + label {z-index:2;}
+        input[id="menuicon"]:checked + label span:nth-child(1) {top:50%;transform:translateY(-50%) rotate(45deg);}
+        input[id="menuicon"]:checked + label span:nth-child(2) {opacity:0;}
+        input[id="menuicon"]:checked + label span:nth-child(3) {bottom:50%;transform:translateY(50%) rotate(-45deg);}
+        div[class="sidebar"] {width:100%;height:0px;background:black; opacity: 50%;
+          position:fixed;top:70px;left:0;z-index:1;transition:all .35s;overflow:hidden;}
+        input[id="menuicon"]:checked + label + div {height:300px;}
+
+        .sitemap-ul {font-size:0;width:1200px;margin:30px auto; text-align:left;}
+        .sitemap-ul > li {font-family: 'Noto Serif KR', serif;
+          font-size:20px; display: inline-block; vertical-align:top; width:20%;
+          color: white;}
+
+
+        aside {float: left; width: 50%; height: 700px; background: white;}
+          .tab_content {padding-top: 20%;}
+          input[type="radio"] {display:none;}
+          label[for*="tab"] {display:inline-block; padding:10px;
+            background:#ccc; color:#999; font-size:14px; cursor:pointer; margin:5px; border-radius:100%;}
+          .btn {padding:10px; text-align:center;}
+          .conbox {width:90%; height:300px; background:white; margin:0 auto; display:none;}
+
+
+          input[id="tab01"]:checked ~ .con1 {display:block;}
+          input[id="tab02"]:checked ~ .con2 {display:block;}
+          input[id="tab03"]:checked ~ .con3 {display:block;}
+
+          input[id="tab01"]:checked ~ .btn > label[for="tab01"] {background:#5ba357;}
+          input[id="tab02"]:checked ~ .btn > label[for="tab02"] {background:#5ba357;}
+          input[id="tab03"]:checked ~ .btn > label[for="tab03"] {background:#5ba357;}
+
+        section {float: left; width: 50%; height: 700px; background: #66b288;}
+         #text {padding: 30px;}
+         .text1 {font-size: 30px; font-family: 'Noto Serif KR', serif; color: white;
+          position: absolute; right: 10px;}
+         .text2 {font-size: 15px; font-family: 'Noto Serif KR', serif; color: black;
+          text-align: right;}
+        footer {clear: both; width: 100%; height: 250px; background: #000000; opacity: 50%;}
+
+
+        /* 화면 너비 0 ~ 1200px */
+        @media (max-width: 1220px){
+            aside {width: 50%; height: 500px;}
+            section {width: 50%; height: 500px;}
+        }
+        /* 화면 너비 0 ~ 768px */
+        @media (max-width: 768px){
+            #title {text-align: right;}
+            aside {width: 100%; height: 500px;}
+            section {width: 100%; height: 300px;}
+        }
+        /* 화면 너비 0 ~ 480px */
+        @media (max-width: 480px){
+            header {height: 300px;}
+            aside {height: 200px;}
+            section {height: 200px;}
+        }
+    </style>
+</head>
+
+
+<body>
+    <div id="wrap">
+
+        <header>
+          <div id="title">
+            <img src="타이틀.png" width="100%">
+          </div>
+
+          <ul class="header-list">
+        		<li><div></div></li>
+
+        			<div>
+
+        			</div>
+        		</li>
+        		<li>
+        			<div>
+        				<input type="checkbox" id="menuicon">
+        				<label for="menuicon">
+        					<span></span>
+        					<span></span>
+        					<span></span>
+        				</label>
+        				<div class="sidebar">
+        					<ul class="sitemap-ul">
+        						<li><a href="#">첫 화면으로</a>
+        							<ul>
+        								<li><a href="index.html">단체 공간</a></li>
+        								<li><a href="2.html">개인 공간</a></li>
+        								<li><a href="3.html">문화센터</a></li>
+        								<li><a href="4.html">늘봄실</a></li>
+        								<li><a href="5.html">야외 시설</a></li>
+        							</ul>
+        						</li>
+        					</ul>
+        				</div>
+        			</div>
+        		</li>
+        	</ul>
+        </header>
+
+        <aside>
+          <div class="tab_content">
+
+          	<input type="radio" name="tabmenu" id="tab01" checked>
+          	<input type="radio" name="tabmenu" id="tab02">
+          	<input type="radio" name="tabmenu" id="tab03">
+
+          	<div class="conbox con1">
+              <center><img src="방.png">
+            </div>
+          	<div class="conbox con2"><center><img src="방1.png"></div>
+          	<div class="conbox con3"><center><img src="방2.png"></div>
+
+          	<div class="btn">
+          		<label for="tab01"></label>
+          		<label for="tab02"></label>
+          		<label for="tab03"></label>
+          	</div>
+
+          </div>
+        </aside>
+
+        <section>
+          <div id="text">
+            <div class="text1">
+            "나만 아는 장소"
+           </div>
+
+           <div class="text2">
+             <br><br><br>어렸을 적 한 글자씩 꾹꾹 눌러 쓴 일기장처럼
+             <br> 개인 시간을 가지기 좋은, 이곳은 오롯이 혼자만의 장소입니다.
+             <br> 안정감을 주는 목재 가구와 따뜻한 색감의 배치가 편안함을 안겨 줍니다.
+           </div>
+          </div>
+        </section>
+
+
+        <footer>
+        </footer>
+    </div>
+</body>
+</html>
